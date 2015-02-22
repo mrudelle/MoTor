@@ -1,0 +1,29 @@
+.entry-list
+{
+	margin: 20px 20px;
+}
+
+.entry
+{
+	padding: 5px 10px;
+}
+
+.negative-entry
+{
+	margin-left: 1rem !important;
+}
+
+.negative-entry .value
+{
+	color: red;
+}
+
+.positive-entry
+{
+	margin-right: 1rem !important;
+}
+
+.positive-entry .value
+{
+	color: green;
+}
