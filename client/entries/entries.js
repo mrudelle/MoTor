@@ -1,3 +1,6 @@
-Template.entryList.helpers({
+
+
+Template.entryList.helpers(
+{
 	entries: Entries.find()
 });
