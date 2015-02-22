@@ -16,9 +16,19 @@ Template.entry.helpers(
 			return Session.get("expanded-entry-" + this._id) || false;
 		},
 
+	editing: function()
+		{
+			return Session.get("editing-entry-" + this._id) || false;
+		},
+
 	dateFromNow: function()
 		{
 			return moment(this.date).fromNow();
+		},
+
+	dayDate: function()
+		{
+			return moment(this.date).format("D MMMM, YYYY")
 		}
 })
 
@@ -38,7 +48,25 @@ Template.entry.events(
 
 	"click #edit-entry": function()
 		{
-			//nothing yet
+			var editing = Session.get("editing-entry-" + this._id) || false
+
+			Session.set("editing-entry-" + this._id, !editing)
+
+			$('.datepicker').pickadate();
+		},
+
+	"submit .edit-entry": function(event)
+		{
+			var text = event.target.text.value;
+			var value = event.target.val.value;
+			var date = event.target.date.value;
+
+			Meteor.call("editEntry", this._id, text, value, date)
+
+			// close the edit panel
+			Session.set("editing-entry-" + this._id, false)
+
+			return false;
 		}
 
 })
