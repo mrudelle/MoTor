@@ -3,21 +3,53 @@
 </head>
 
 <body>
-	<header>
-		<h1>
-			MoTor
-		</h1>
-		<h3>
-			Manage your expense
-		</h3>
-	</header>
 
-	<form class="new-entry">
-		<input type="text" name="text" placeholder="Type to add a new entry"/>
-		<input type="number" name="val" placeholder="Value"/>
-		<input type="date" name="date" placeholder="Date"/>
-		<button type="submit">Add</button>
-	</form>
+	<nav class="green">
+		<div class="nav-wrapper container">
+			<a href="#" class="brand-logo">MoTor</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+			</ul>
+		</div>
+	</nav>
 
-	{{> entryList}}
+	<div class="container">
+		<div class="row">
+			<div class="col s3">
+				<form class="new-entry">
+					<input type="text" name="text" placeholder="Entry Name"  class="validate"/>
+					<input type="number" name="val" placeholder="Value"  class="validate"/>
+					<input type="date" name="date" placeholder="Date"  class="validate datepicker"/>
+					<button type="submit" class="waves-effect waves-light btn blue" style="width: 100%">
+						Add
+						<i class="mdi-content-send right"></i>
+					</button>
+				</form>
+			</div>
+
+			<div class="col s6">
+				{{> entryList}}
+			</div>
+
+			<div class="col s3">
+				
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title grey-text text-darken-4">CHF 11895.-</span>
+						<p class="orange-text">Balance</p>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-image">
+						<img src="https://lh4.googleusercontent.com/-4XIk48ckXps/UqId6yaK-HI/AAAAAAAAACE/u1tyIimRniM/s0-d/ge-stock-chart-yahoo-finance-ipad-app.png">
+						<span class="card-title">Charts</span>
+					</div>
+					<div class="card-content">
+						<p class="orange-text">Manage over time</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
