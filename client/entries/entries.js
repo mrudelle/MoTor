@@ -2,5 +2,5 @@
 
 Template.entryList.helpers(
 {
-	entries: Entries.find({}, {sort: {createdAt: -1}})
+	entries: Entries.find({}, {sort: {date: -1}})
 });

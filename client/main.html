@@ -18,8 +18,11 @@
 			<div class="col s3">
 				<form class="new-entry">
 					<input type="text" name="text" placeholder="Entry Name"  class="validate"/>
+
 					<input type="number" name="val" placeholder="Value"  class="validate"/>
-					<input type="date" name="date" placeholder="Date"  class="validate datepicker"/>
+
+					<input type="date" name="date" placeholder="Date"  class="datepicker validate"/>
+
 					<button type="submit" class="waves-effect waves-light btn blue" style="width: 100%">
 						Add
 						<i class="mdi-content-send right"></i>
@@ -35,7 +38,7 @@
 				
 				<div class="card">
 					<div class="card-content">
-						<span class="card-title grey-text text-darken-4">CHF 11895.-</span>
+						<span class="card-title grey-text text-darken-4">CHF {{balance}}</span>
 						<p class="orange-text">Balance</p>
 					</div>
 				</div>
