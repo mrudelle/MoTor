@@ -5,7 +5,12 @@
 
 .entry
 {
-	padding: 5px 10px;
+	padding: 5px;
+}
+
+.entry-text
+{
+	text-transform: capitalize;
 }
 
 .negative-entry
@@ -15,7 +20,7 @@
 
 .negative-entry .value
 {
-	color: red;
+	color: #f44336;
 }
 
 .positive-entry
@@ -25,5 +30,5 @@
 
 .positive-entry .value
 {
-	color: green;
+	color: #4caf50;
 }

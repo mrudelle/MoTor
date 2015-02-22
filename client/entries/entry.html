@@ -1,6 +1,23 @@
 <template name="entry">
 	<li class="{{#if negative}}negative-entry{{else}}positive-entry{{/if}} card-panel row entry">
-		<span class="truncate col s8">{{text}}</span>
-		<span class="badge">CHF <b class="value">{{val}}</b></span>
+
+		<div class="entry-header">
+			<span class="truncate col s8 entry-text">{{text}}</span>
+			<span class="badge">CHF <b class="value">{{val}}</b></span>
+		</div>
+
+		{{#if expanded}}
+		<div class="col s12">
+
+			<span>
+				{{dateFromNow}}
+				<i id="delete-entry" class="mdi-action-delete right"></i>
+				<i id="edit-entry" class="mdi-editor-mode-edit right"></i>
+			</span>
+
+
+		</div>
+		{{/if}}
+
 	</li>
 </template>
