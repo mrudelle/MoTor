@@ -1,4 +1,6 @@
 
+Meteor.subscribe('entries');
+
 Template.body.events(
 {
 	"submit .new-entry": function(event)
@@ -14,6 +16,13 @@ Template.body.events(
 			event.target.reset();
 
 			return false;
+		},
+
+	"click *" : function(event)
+		{
+			// colapse any expanded entry
+			Session.set("expanded-entry", "");
+			Session.set("editing-entry", "");
 		}
 })
 

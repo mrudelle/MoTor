@@ -13,12 +13,12 @@ Template.entry.helpers(
 
 	expanded: function()
 		{
-			return Session.get("expanded-entry-" + this._id) || false;
+			return Session.get("expanded-entry") === this._id || false;
 		},
 
 	editing: function()
 		{
-			return Session.get("editing-entry-" + this._id) || false;
+			return Session.get("editing-entry") === this._id || false;
 		},
 
 	dateFromNow: function()
@@ -34,25 +34,29 @@ Template.entry.helpers(
 
 Template.entry.events(
 {
-	"click .entry-header": function()
+	"click .entry": function()
 		{
-			var expanded = Session.get("expanded-entry-" + this._id) || false
+			var expanded = Session.get("expanded-entry") === this._id || false
 
-			Session.set("expanded-entry-" + this._id, !expanded)
+			Session.set("expanded-entry", expanded? "" : this._id)
+
+			return false;
 		},
 
 	"click #delete-entry": function()
 		{
 			Meteor.call("deleteEntry", this._id)
+
+			return false;
 		},
 
 	"click #edit-entry": function()
 		{
-			var editing = Session.get("editing-entry-" + this._id) || false
+			var editing = Session.get("editing-entry") === this._id || false
 
-			Session.set("editing-entry-" + this._id, !editing)
+			Session.set("editing-entry", editing? "" : this._id)
 
-			$('.datepicker').pickadate();
+			return false;
 		},
 
 	"submit .edit-entry": function(event)
@@ -64,7 +68,7 @@ Template.entry.events(
 			Meteor.call("editEntry", this._id, text, value, date)
 
 			// close the edit panel
-			Session.set("editing-entry-" + this._id, false)
+			Session.set("editing-entry", "")
 
 			return false;
 		}
